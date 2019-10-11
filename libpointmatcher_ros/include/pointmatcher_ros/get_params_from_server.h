@@ -4,10 +4,10 @@
 #include <string>
 #include "ros/ros.h"
 
-bool hasParam(const std::string& name)
-{
-	return ros::param::has(std::string("~")+name);
-}
+bool hasParam(const std::string& name);
+//{
+//	return ros::param::has(std::string("~")+name);
+//}
 
 template<typename T>
 T getParam(const std::string& name, const T& defaultValue)

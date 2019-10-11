@@ -1,12 +1,12 @@
 matcher:
   KDTreeMatcher:
-    maxDist: 3.0
-    knn: 2
+    maxDist: 1.0
+    knn: 1
     epsilon: 0
 
 outlierFilters:
   - TrimmedDistOutlierFilter:
-     ratio: 0.60
+     ratio: 0.80
 
 errorMinimizer:
   PointToPointErrorMinimizer

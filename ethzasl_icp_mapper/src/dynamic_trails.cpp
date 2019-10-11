@@ -64,7 +64,7 @@ class DynamicTrails
 	ros::Publisher markerPub;
 
 	PM::DataPointsFilters inputFilters;
-	shared_ptr<PM::Transformation> transformation;
+	unique_ptr<PM::Transformation> transformation;
 	shared_ptr<DP> lastPointCloud;
 	shared_ptr<DP> trailPointCloud;
 	PM::DataPoints globalMap;
@@ -459,7 +459,7 @@ void DynamicTrails::processCloud(DP inputPointCloud, const TP TScannerToMap)
 
 	if(currentTrailPtCount > 0)
 	{
-		if(!trailPointCloud)
+		if(trailPointCloud == false)
 		{
 			trailPointCloud.reset(new DP(currenttTrails));
 		}

@@ -56,6 +56,6 @@ add_definitions(-DHAVE_YAML_CPP)
 add_definitions(-DBOOST_DATE_TIME_POSIX_TIME_STD_CONFIG)
 include_directories(include)
 
-add_library(pointmatcher_ros src/point_cloud.cpp src/transform.cpp)
+add_library(pointmatcher_ros src/point_cloud.cpp src/transform.cpp src/get_params_from_server.cpp)
 include_directories(${catkin_INCLUDE_DIRS} ${libpointmatcher_INCLUDE_DIRS})
 target_link_libraries(pointmatcher_ros ${catkin_LIBRARIES} ${libpointmatcher_LIBRARIES})

@@ -3,7 +3,7 @@
     epsilon: 3.16
     keepNormals: 0
     keepDensities: 1
-- CutAtDescriptorThresholdDataPointsFilter:
-    descName: probabilityStatic
-    useLargerThan: 0
-    threshold: 0.1
+- MaxDensityDataPointsFilter:
+    maxDensity: 50
+- MaxPointCountDataPointsFilter:
+    maxCount: 600000

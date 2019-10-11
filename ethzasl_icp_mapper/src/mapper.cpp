@@ -72,7 +72,7 @@ class Mapper
 	PM::DataPointsFilters mapPostFilters;
 	PM::DataPoints *mapPointCloud;
 	PM::ICPSequence icp;
-	shared_ptr<PM::Transformation> transformation;
+	unique_ptr<PM::Transformation> transformation;
 	
 	// multi-threading mapper
 	#if BOOST_VERSION >= 104100
@@ -158,7 +158,7 @@ Mapper::Mapper(ros::NodeHandle& n, ros::NodeHandle& pn):
 	vtkFinalMapName(getParam<string>("vtkFinalMapName", "finalMap.vtk")),
 	TOdomToMap(PM::TransformationParameters::Identity(4, 4)),
 	publishStamp(ros::Time::now()),
-	tfListener(ros::Duration(30))
+  tfListener(ros::Duration(30))
 {
 
 	// Ensure proper states
@@ -169,7 +169,7 @@ Mapper::Mapper(ros::NodeHandle& n, ros::NodeHandle& pn):
 
 	// set logger
 	if (getParam<bool>("useROSLogger", false))
-		PointMatcherSupport::setLogger(make_shared<PointMatcherSupport::ROSLogger>());
+		PointMatcherSupport::setLogger(new PointMatcherSupport::ROSLogger);
 
 	// load configs
 	string configFileName;
@@ -192,7 +192,7 @@ Mapper::Mapper(ros::NodeHandle& n, ros::NodeHandle& pn):
 		icp.setDefault();
 	}
 	if (getParam<bool>("useROSLogger", false))
-		PointMatcherSupport::setLogger(make_shared<PointMatcherSupport::ROSLogger>());
+		PointMatcherSupport::setLogger(new PointMatcherSupport::ROSLogger);
 	
 	if (ros::param::get("~inputFiltersConfig", configFileName))
 	{
