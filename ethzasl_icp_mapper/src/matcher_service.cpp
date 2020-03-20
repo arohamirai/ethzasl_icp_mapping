@@ -57,8 +57,8 @@ CloudMatcher::CloudMatcher(ros::NodeHandle& n):
 	}
 	
 	// replace logger
-	if (getParam<bool>("useROSLogger", false))
-		PointMatcherSupport::setLogger(new PointMatcherSupport::ROSLogger);
+	//if (getParam<bool>("useROSLogger", false))
+	//	PointMatcherSupport::setLogger(new PointMatcherSupport::ROSLogger);
 }
 
 bool CloudMatcher::match(ethzasl_icp_mapper::MatchClouds::Request& req, ethzasl_icp_mapper::MatchClouds::Response& res)

@@ -168,8 +168,8 @@ Mapper::Mapper(ros::NodeHandle& n, ros::NodeHandle& pn):
 		localizing = true;
 
 	// set logger
-	if (getParam<bool>("useROSLogger", false))
-		PointMatcherSupport::setLogger(new PointMatcherSupport::ROSLogger);
+	//if (getParam<bool>("useROSLogger", false))
+	//	PointMatcherSupport::setLogger(new PointMatcherSupport::ROSLogger);
 
 	// load configs
 	string configFileName;
@@ -191,8 +191,8 @@ Mapper::Mapper(ros::NodeHandle& n, ros::NodeHandle& pn):
 		ROS_INFO_STREAM("No ICP config file given, using default");
 		icp.setDefault();
 	}
-	if (getParam<bool>("useROSLogger", false))
-		PointMatcherSupport::setLogger(new PointMatcherSupport::ROSLogger);
+	//if (getParam<bool>("useROSLogger", false))
+	//	PointMatcherSupport::setLogger(new PointMatcherSupport::ROSLogger);
 	
 	if (ros::param::get("~inputFiltersConfig", configFileName))
 	{

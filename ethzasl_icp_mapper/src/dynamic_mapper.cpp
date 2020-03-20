@@ -220,8 +220,8 @@ Mapper::Mapper(ros::NodeHandle& n, ros::NodeHandle& pn):
 		localizing = true;
 	
 	// set logger
-	if (getParam<bool>("useROSLogger", false))
-		PointMatcherSupport::setLogger(new PointMatcherSupport::ROSLogger);
+	//if (getParam<bool>("useROSLogger", false))
+	//	PointMatcherSupport::setLogger(new PointMatcherSupport::ROSLogger);
 
 	// Load all parameters stored in external files
 	loadExternalParameters();
